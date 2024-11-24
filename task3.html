@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./task3.css">
+    <title>Task 3</title>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td><label for="firstName">Firstname: </label><input type="text" name="firstName" id="firstName"></td>
+                <td><label for="lastName">Lastname: </label><input type="text" name="lastName" id="lastName"></td>
+            </tr>
+            <tr>
+                <td><label for="birthday">Birthday: </label><input type="date" name="birthday" id="birthday"></td>
+                <td><label class="inlineLabel">Gender: </label>
+                    <label for="male" class="inlineLabel"><input type="radio" name="gender" id="male"
+                            value="Male">Male</label>
+                    <label for="female" class="inlineLabel"><input type="radio" name="gender" id="female"
+                            value="Female">Female</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="country">Country:</label>
+                    <select name="country" id="country">
+                        <option value="Ukraine">Ukraine</option>
+                        <option value="Romania">Romania</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                    </select>
+                </td>
+                <td>
+                    <label for="city">City:</label>
+                    <select name="city" id="city">
+                        <option value="Odesa">Odesa</option>
+                        <option value="Constanta">Constanta</option>
+                        <option value="Washington">Washington</option>
+                        <option value="London">London</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div id="skills">
+            <label class="inlineLabel">Skills:</label>
+            <label for="HTML" class="checkboxLabel"><input type="checkbox" name="skill" id="HTML"
+                    value="HTML">HTML</label>
+            <label for="CSS" class="checkboxLabel"><input type="checkbox" name="skill" id="CSS" value="CSS">CSS</label>
+            <label for="JS" class="checkboxLabel"><input type="checkbox" name="skill" id="JS" value="JS">JS</label>
+            <label for="PHP" class="checkboxLabel"><input type="checkbox" name="skill" id="PHP" value="PHP">PHP</label>
+            <label for="C++" class="checkboxLabel"><input type="checkbox" name="skill" id="C++" value="C++">C++</label>
+            <label for="JAVA" class="checkboxLabel"><input type="checkbox" name="skill" id="JAVA"
+                    value="JAVA">JAVA</label>
+            <label for="C#" class="checkboxLabel"><input type="checkbox" name="skill" id="C#" value="C#">C#</label>
+        </div>
+        <input type="button" id="saveBtn" value="Save">
+        <p>Result: </p>
+    </form>
+
+    <script>
+        let saveBtn = document.querySelector("#saveBtn");
+        function addTable(fn, ln, b, g, cn, ct, sk) {
+            let info = [{ title: 'Firstname', value: fn.value }, { title: 'Lastname', value: ln.value }, { title: 'Birthday', value: b.value }, { title: 'Gender', value: g.value }, { title: 'Country', value: country.value }, { title: 'City', value: city.value }, { title: 'Skills', value: sk }]
+            let infoTable = document.createElement("table");
+            infoTable.className = "infoTable";
+            info.forEach(row => {
+                let tr = document.createElement("tr");
+                let titleTd = document.createElement("td");
+                titleTd.className = "titleTd";
+                titleTd.innerText = row.title;
+                tr.appendChild(titleTd);
+                let valueTd = document.createElement("td");
+                valueTd.className = "valueTd";
+                valueTd.innerText = row.value;
+                tr.appendChild(valueTd);
+                infoTable.appendChild(tr);
+            });
+            document.body.appendChild(infoTable);
+        }
+        saveBtn.addEventListener("click", save);
+        function save() {
+            let firstName = document.querySelector('input[name="firstName"]');
+            let lastName = document.querySelector('input[name="lastName"]');
+            let birthday = document.querySelector('input[name="birthday"]');
+            let gender = document.querySelector('input[type="radio"][name="gender"]:checked');
+            let country = document.querySelector('#country');
+            let city = document.querySelector('#city');
+            let skillsList = Array.from(document.querySelectorAll("input[name='skill']:checked"));
+            let skills = "";
+            skillsList.forEach(skill => {
+                skills += skill.value + ", ";
+            });
+            skills = skills.slice(0, -2);
+            addTable(firstName, lastName, birthday, gender, country, city, skills);
+        }
+
+
+    </script>
+</body>
+
+</html>

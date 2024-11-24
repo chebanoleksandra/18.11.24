@@ -1,0 +1,30 @@
+body {
+    background-color: antiquewhite;
+    font-family: "Roboto", sans-serif;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+label,
+p,
+#addBtn {
+    font-weight: 400;
+}
+
+input {
+    width: 370px;
+}
+
+#addForm,
+#addBtn,
+#questions {
+    width: 500px;
+}
+
+
+#addForm {
+    border-top: 2px solid lightgray;
+}

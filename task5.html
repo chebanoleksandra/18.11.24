@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./task5.css">
+    <title>Task 5</title>
+</head>
+
+<body>
+    <h2>All questions:</h2>
+    <div id="questions">
+
+    </div>
+    <form id="addForm">
+        <h2>Add new question:</h2>
+        <table>
+            <tr>
+                <td><label for="quest">Question: </label></td>
+                <td><input type="text" id="quest" name="quest"></td>
+            </tr>
+            <tr>
+                <td><label for="correct">Correct answer: </label></td>
+                <td><input type="text" id="correct" name="correct"></td>
+            </tr>
+            <tr>
+                <td><label for="wrong">Wrong answer: </label></td>
+                <td><input type="text" id="wrong" name="wrong"></td>
+            </tr>
+        </table>
+        <input type="button" value="Add" id="addBtn">
+    </form>
+
+    <script>
+        let addBtn = document.querySelector("#addBtn");
+        addBtn.addEventListener("click", info);
+
+        let questions = document.querySelector("#questions");
+        function addHandler(q, c, w)
+        {
+            let question = document.createElement("div");
+            question.style.borderTop = "2px solid lightgray";
+            let qP = document.createElement("p");
+            qP.innerText = q;
+            qP.style.textDecoration = "underline";
+            question.appendChild(qP);
+            let cP = document.createElement("p");
+            cP.innerText = `Correct answer: ${c}`;
+            question.appendChild(cP);
+            let wP = document.createElement("p");
+            wP.innerText = `Wrong answer: ${w}`;
+            question.appendChild(wP);
+            questions.appendChild(question);
+        }
+
+        function info()
+        {
+            let quest = document.querySelector("input[name='quest']").value;
+            let correct = document.querySelector("input[name='correct']").value;
+            let wrong = document.querySelector("input[name='wrong']").value;
+            addHandler(quest, correct, wrong);
+        }
+    </script>
+</body>
+
+</html>

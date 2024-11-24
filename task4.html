@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./task4.css">
+    <title>Task 4</title>
+</head>
+
+<body>
+    <form id="colorForm">
+        <div id="colorsValue">
+            <label for="#red">R <input type="text" id="red"></label>
+            <label for="#green">G <input type="text" id="green"></label>
+            <label for="#blue">B <input type="text" id="blue"></label>
+        </div>
+        <input type="button" value="Add color" id="addColor">
+    </form>
+    <div id="wrapper">
+    </div>
+
+    <script>
+        let addBtn = document.querySelector("#addColor");
+        addBtn.addEventListener("click", addColor);
+        let wrapper = document.querySelector("#wrapper");
+
+        function addColor()
+        {
+            let red = document.querySelector("#red").value;
+            let green = document.querySelector("#green").value;
+            let blue = document.querySelector("#blue").value;
+            let colorBlock = document.createElement("div");
+            colorBlock.className = "colorBlock";
+            let color = document.createElement("div");
+            color.className = "color";
+            color.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+            colorBlock.appendChild(color);
+            let p = document.createElement("p");
+            p.innerText = `RGB (${red}, ${green}, ${blue})`;
+            colorBlock.appendChild(p);
+            wrapper.appendChild(colorBlock);
+        }
+    </script>
+</body>
+
+</html>

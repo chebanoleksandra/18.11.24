@@ -1,0 +1,67 @@
+body {
+    background-color: antiquewhite;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+td {
+    width: 200px;
+}
+
+label {
+    display: block;
+}
+
+.inlineLabel,
+.checkboxLabel {
+    display: inline;
+}
+
+.checkboxLabel {
+    font-weight: 400;
+}
+
+#saveBtn {
+    width: 375px;
+    margin-top: 8px;
+    display: block;
+}
+
+select 
+{
+    width: 170px;
+}
+
+input[type="date"]
+{
+    width: 165px;
+}
+
+#skills 
+{
+    margin-top: 8px;
+}
+
+.infoTable {
+    border-collapse: collapse;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.infoTable td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    font-weight: 400;
+    padding-left: 20px;
+}
+
+.titleTd {
+    width: 80px;
+    font-size: 12px;
+}
+
+.valueTd {
+    font-size: 14px;
+    width: 250px;
+}
